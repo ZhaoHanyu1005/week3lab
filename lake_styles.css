@@ -1,0 +1,266 @@
+@charset "utf-8";
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 2
+   Case Problem 4
+   Great Lakescape Lodge Style Sheet
+   Author: Hanyu Zhao
+   Date:   2026.9.20
+   Filename: lake_styles.css
+*/
+
+/* Import custom web fonts for page decoration */
+@font-face {
+   font-family: "CAC Champagne";
+   src: url("cac_champagne.woff") format("woff"),
+        url("cac_champagne.ttf") format("truetype");
+}
+@font-face {
+   font-family: "Dobkin Plain";
+   src: url("DobkinPlain.woff") format("woff"),
+        url("DobkinPlain.ttf") format("truetype");
+}
+
+/* Set overall page background color */
+html {
+   background-color: rgb(183, 183, 60);
+}
+
+/* Basic body text and background style */
+body {
+   background-color: rgb(121, 58, 125);
+   color: ivory;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 19.2px;
+   line-height: 1.05;
+}
+
+/* Create main page grid layout structure */
+body {
+   display: grid;
+   grid-template-columns: 70% 4% 24% 2%;
+   grid-template-areas:
+      "header header header header"
+      "welcome . sidebar ."
+      "footer footer footer footer";
+}
+
+/* Assign grid area for page header */
+body > header {
+   grid-area: header;
+}
+
+/* Style left main content column */
+body > section#leftcol {
+   grid-area: welcome;
+   width: auto;
+   float: none;
+   margin: 0;
+   background-color: black;
+}
+
+/* Style right sidebar column */
+body > section#rightcol {
+   grid-area: sidebar;
+   width: auto;
+   float: none;
+   margin: 0;
+}
+
+/* Adjust top banner image display ratio */
+body > header > img {
+   aspect-ratio: 15 / 1;
+   object-fit: cover;
+   object-position: center bottom;
+}
+
+/* Set navigation bar background style */
+header > nav {
+   display: block;
+   background-color: rgba(255, 200, 255, 0.2);
+}
+
+/* Use flexbox to arrange navigation menu items evenly */
+header > nav > ul {
+   display: flex;
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+header > nav > ul > li {
+   display: block;
+   flex: 1;
+}
+
+/* Basic navigation link style */
+header > nav a {
+   padding: 12px 0;
+   color: rgba(255, 255, 255, 0.55);
+   font-size: 16px;
+   line-height: 16px;
+   text-decoration: none;
+}
+
+/* Hover and focus effect for all links */
+a:hover,
+a:focus-visible {
+   color: white;
+   text-decoration: underline;
+}
+a:focus-visible {
+   outline: 2px solid rgb(78, 78, 21);
+   outline-offset: 2px;
+}
+
+/* Main heading style in left column */
+#leftcol > h1 {
+   margin: 0;
+   padding: 10px;
+   font-family: "CAC Champagne", cursive;
+   font-size: 64px;
+   font-weight: normal;
+   line-height: 68px;
+}
+
+/* Paragraph padding and margin in left column */
+#leftcol > p {
+   margin: 20px;
+}
+
+/* General style for two side cards */
+#leftcol > aside {
+   padding: 0 5px 5px;
+   font-size: 14px;
+   line-height: 1.2;
+}
+
+/* Background color for first card */
+#leftcol > aside:first-of-type {
+   background-color: rgb(235, 148, 122);
+}
+
+/* Background color for second card */
+#leftcol > aside:last-of-type {
+   background-color: rgb(222, 197, 112);
+}
+
+/* Card heading style */
+#leftcol aside h1 {
+   margin: 8px 0 18px;
+   font-size: 20px;
+   font-weight: normal;
+   line-height: 1.2;
+   text-align: center;
+}
+#leftcol aside h2 {
+   margin: 12px 0;
+   font-size: 18px;
+   font-weight: normal;
+}
+
+/* Adjust margin for second card title */
+#leftcol > aside:last-of-type h1 {
+   margin-bottom: 14px;
+}
+
+/* Card paragraph spacing */
+#leftcol aside p {
+   margin: 14px 10px 6px;
+}
+
+/* Custom list style inside cards */
+#leftcol aside ul {
+   margin: 0 10px 7px 0;
+   padding-left: 36px;
+   list-style-type: circle;
+}
+#leftcol aside li {
+   padding-left: 0;
+   line-height: 1.6;
+}
+
+/* Change list marker color */
+#leftcol aside li::marker {
+   color: rgb(232, 232, 134);
+}
+
+/* Link color inside left column cards */
+#leftcol aside a {
+   color: rgb(221, 51, 221);
+}
+#leftcol aside a:hover,
+#leftcol aside a:focus-visible {
+   color: white;
+}
+
+/* Sidebar heading font and size */
+#rightcol nav h2 {
+   margin: 24px 0 16px;
+   font-family: "CAC Champagne", cursive;
+   font-size: 36px;
+   font-weight: normal;
+   line-height: 1;
+}
+
+/* Sidebar list layout style */
+#rightcol nav ul {
+   margin: 0 0 24px;
+   padding-left: 20px;
+   list-style-type: none;
+   font-size: 16px;
+   line-height: 1.1;
+}
+
+/* Adjust top margin for first sidebar heading */
+#rightcol nav h2:first-child {
+   margin-top: 26px;
+}
+
+/* Sidebar link basic style */
+#rightcol nav a {
+   color: rgba(255, 255, 255, 0.55);
+   text-decoration: none;
+}
+#rightcol nav a:hover,
+#rightcol nav a:focus-visible {
+   color: white;
+   text-decoration: underline;
+}
+
+/* Quote block style with generated quotation marks */
+#rightcol blockquote {
+   margin: 80px 0 30px;
+   color: rgb(221, 51, 221);
+   font-family: Georgia, "Times New Roman", serif;
+   font-size: 20px;
+   line-height: 1.3;
+}
+#rightcol blockquote::before {
+   content: "\201c";
+   font-size: 1.5em;
+   font-weight: bold;
+   line-height: 0;
+}
+#rightcol blockquote::after {
+   content: "\201d";
+   font-size: 1.5em;
+   font-weight: bold;
+   line-height: 0;
+}
+
+/* Footer layout and background style */
+body > footer {
+   grid-area: footer;
+   padding: 7px 10px;
+   background-color: rgb(54, 50, 58);
+   font-size: 14px;
+   font-variant: small-caps;
+   line-height: 1;
+   text-align: center;
+}
+
+/* Custom font for footer italic text */
+body > footer em {
+   font-family: "Dobkin Plain", cursive;
+   letter-spacing: 0;
+}
